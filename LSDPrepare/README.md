@@ -7,8 +7,8 @@ The module is ran from the command line with the following command: **./LSDPrepa
   - 'LSDPrepare.conf': configuration file that configures a run
   - atmosphere models for both binary components (e.g. Kurucz models)
 * *Output:* 
-  - 'StarName_primary/secondary.corr': key output file that will be used by the LSDBinary algorithm
-  - 'StarName_primary/secondary.lin': line list that has been used to compute the initial guess LSD profiles and will be employed by the LSDBinary algorithm
+  - 'StarName_primary/secondary.corr': key output file that will be used by the *LSDBinary* algorithm
+  - 'StarName_primary/secondary.lin': line list that has been used to compute the initial guess LSD profiles and will be employed by the *LSDBinary* algorithm
   - 'StarName_primary/secondary.rgs': synthetic spectrum that has been used to compute the initial guess LSD profiles
 * *Example (RZ Cas from Tkachenko et al. 2022):*
   - 'LSDPrepare.conf': configuration file that configures a run
