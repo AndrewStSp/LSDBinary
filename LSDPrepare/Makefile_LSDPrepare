@@ -1,0 +1,75 @@
+#
+#Linux with Intel Fortran compiler
+#
+FF = ifort
+FLAG = -c -zero -save -i8
+BDIR = .
+
+all: $(BDIR)/LSDPrepare Makefile_LSDPrepare
+
+$(BDIR)/LSDPrepare: LSDPrepare_Module.o LSDsynth_Modules.o RME_Modules.o LSDPrepare.o LSDPrepare_Prepare.o LSDPrepare_Math_subroutines.o LSDsynth_LSDSynth.o LSDsynth_Init.o LSDsynth_Initial_guess.o LSDsynth_LSD_profile.o LSDsynth_Load_observed_mask.o LSDsynth_Output.o RME_beta.o RME_Init.o RME_Coordinates.o RME_Load_synth.o RME_Spectrum.o Convolve_Main.o Convolve_Convolution.o Convolve_Disc_integ.o Makefile_LSDPrepare
+	$(FF)  -o $(BDIR)/LSDPrepare *.o -lmkl_intel_ilp64 -lmkl_sequential -lmkl_core  -lpthread -lm
+
+LSDPrepare_Module.o: LSDPrepare_Module.f90 
+	$(FF)  $(FLAG) LSDPrepare_Module.f90
+
+LSDsynth_Modules.o: LSDsynth_Modules.f90 
+	$(FF)  $(FLAG) LSDsynth_Modules.f90
+
+RME_Modules.o: RME_Modules.f90 
+	$(FF)  $(FLAG) RME_Modules.f90
+
+LSDPrepare.o: LSDPrepare.f90
+	$(FF)  $(FLAG) LSDPrepare.f90
+
+LSDPrepare_Prepare.o: LSDPrepare_Prepare.f90 
+	$(FF)  $(FLAG) LSDPrepare_Prepare.f90
+
+LSDPrepare_Math_subroutines.o: LSDPrepare_Math_subroutines.f90 
+	$(FF)  $(FLAG) LSDPrepare_Math_subroutines.f90
+
+LSDsynth_LSDSynth.o: LSDsynth_LSDSynth.f90 
+	$(FF)  $(FLAG) LSDsynth_LSDSynth.f90
+
+LSDsynth_Init.o: LSDsynth_Init.f90 
+	$(FF)  $(FLAG) LSDsynth_Init.f90
+
+LSDsynth_Initial_guess.o: LSDsynth_Initial_guess.f90 
+	$(FF)  $(FLAG) LSDsynth_Initial_guess.f90
+
+LSDsynth_LSD_profile.o: LSDsynth_LSD_profile.f90 
+	$(FF)  $(FLAG) LSDsynth_LSD_profile.f90
+
+LSDsynth_Load_observed_mask.o: LSDsynth_Load_observed_mask.f90 
+	$(FF)  $(FLAG) LSDsynth_Load_observed_mask.f90
+
+LSDsynth_Output.o: LSDsynth_Output.f90 
+	$(FF)  $(FLAG) LSDsynth_Output.f90
+
+RME_beta.o: RME_beta.f90 
+	$(FF)  $(FLAG) RME_beta.f90
+
+RME_Init.o: RME_Init.f90 
+	$(FF)  $(FLAG) RME_Init.f90
+
+RME_Coordinates.o: RME_Coordinates.f90 
+	$(FF)  $(FLAG) RME_Coordinates.f90
+
+RME_Load_synth.o: RME_Load_synth.f90 
+	$(FF)  $(FLAG) RME_Load_synth.f90
+
+RME_Spectrum.o: RME_Spectrum.f90 
+	$(FF)  $(FLAG) RME_Spectrum.f90
+
+Convolve_Main.o: Convolve_Main.f90 
+	$(FF)  $(FLAG) Convolve_Main.f90
+
+Convolve_Convolution.o: Convolve_Convolution.f90 
+	$(FF)  $(FLAG) Convolve_Convolution.f90
+
+Convolve_Disc_integ.o: Convolve_Disc_integ.f90 
+	$(FF)  $(FLAG) Convolve_Disc_integ.f90
+	
+clean:
+	@rm -f *.o
+	@rm LSDPrepare
