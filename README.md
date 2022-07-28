@@ -25,6 +25,8 @@ Figure below provides an illustration of the application the the *LSDBinary* alg
 ![LSD_demonstration](https://user-images.githubusercontent.com/19326373/181460061-2541d9e7-2cc2-4679-8549-7c6dcd5beb55.jpeg)
 Figure 2: graphical presentation of the *LSDBinary* algorithm. **Left:** initial guess synthetic LSD profiles computed with the *LSDinit* module with (red stars) and without (black dots) the RM effect, along with the resulting 'observed' LSD profile (black solid line) computed with the *LSDBinary* module. **Middle:** the in-eclipse phase resolved RV-curves with (red stars) and without (black dots) the RM effect. The RVs measured relative to the respective initial guess LSD profiles are indicated with the arrows. **Right:** radii ratio as a function of orbital phase with (red stars) and without (black dots) the RM effect taken into account in the computation of the initial guess synthetic spectrum-based LSD profiles. Arrows indicate the same data points as in the middle panel. See Tkachenko et al. (2022, A&A, submitted) for more details.
 ## Installation
-*LSDPrepare:* run the following command **make -f Makefile_LSDPrepare**
+The **LSDBinary** package installs with Intel Fortran Compiler and requires Math Kernel Library (MKL) to be installed with it.
+- *LSDPrepare:* run the following command **make -f Makefile_LSDPrepare** to install the *LSDPrepare* module
+- *LSDbinary:* run the following command **make -f Makefile_LSDbinary** to install the *LSDbinary* module
 ## Publication
 Details of the algorithm as well as its extensive tests on simulated data are published in Tkachenko et al. (2022, A&A, submitted). **We kindly ask any user of the _LSDBinary_ software package to cite Tkachenko et al. (2022, A&A, submitted) in their own publications.**
