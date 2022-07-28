@@ -5,7 +5,7 @@ module observed ! Observed spectra data
  real(8), allocatable :: wfirst(:),wlast(:) ! Wavelengths regions for fitting: first and last wavelength for each region of observed spectrum
  real(8), allocatable :: wave_obs(:), R_obs(:) ! given observed spectrum wavelengths and residual flux
  integer number_regions	! number of regions for fitting
- integer nobs ! number of points in observed spectrum
+ integer(8) nobs ! number of points in observed spectrum
 end module 
 
 module mask
@@ -16,7 +16,7 @@ end module
 
 module LSD_data
  real(8) FWHM_tot ! FWHM in velocity space (km/s)
- integer(4) nRV ! Number of pixels across the LSD profile
+ integer(8) nRV ! Number of pixels across the LSD profile
  real(8), allocatable :: vLSD(:), rLSD(:) ! RVs and intensity
  real(8), allocatable :: model(:) ! model spectrum
 end module

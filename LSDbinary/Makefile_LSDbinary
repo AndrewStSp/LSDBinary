@@ -1,0 +1,54 @@
+#
+#Linux with Intel Fortran compiler
+#
+FF = ifort
+FLAG = -c -zero -save -i8
+BDIR = .
+
+all: $(BDIR)/LSDbinary Makefile_LSDbinary
+
+$(BDIR)/LSDbinary: modules.o LSDbinary.o init.o load_observed.o load_mask.o initial_guess.o LSD_profile.o model_spectrum.o fmin.o mini_reg.o output.o correction.o map1.o Makefile_LSDbinary
+	$(FF)  -o $(BDIR)/LSDbinary *.o -lmkl_intel_ilp64 -lmkl_sequential -lmkl_core  -lpthread -lm
+
+modules.o: modules.f90 
+	$(FF)  $(FLAG) modules.f90
+
+LSDbinary.o: LSDbinary.f90 
+	$(FF)  $(FLAG) LSDbinary.f90
+
+init.o: init.f90 
+	$(FF)  $(FLAG) init.f90
+
+load_observed.o: load_observed.f90
+	$(FF)  $(FLAG) load_observed.f90
+
+load_mask.o: load_mask.f90 
+	$(FF)  $(FLAG) load_mask.f90
+
+initial_guess.o: initial_guess.f90 
+	$(FF)  $(FLAG) initial_guess.f90
+
+LSD_profile.o: LSD_profile.f90 
+	$(FF)  $(FLAG) LSD_profile.f90
+
+model_spectrum.o: model_spectrum.f90 
+	$(FF)  $(FLAG) model_spectrum.f90
+
+fmin.o: fmin.f 
+	$(FF)  $(FLAG) fmin.f
+
+mini_reg.o: mini_reg.f90 
+	$(FF)  $(FLAG) mini_reg.f90
+
+output.o: output.f90 
+	$(FF)  $(FLAG) output.f90
+
+correction.o: correction.f90 
+	$(FF)  $(FLAG) correction.f90
+
+map1.o: map1.f90 
+	$(FF)  $(FLAG) map1.f90
+	
+clean:
+	@rm -f *.o
+	@rm LSDbinary
